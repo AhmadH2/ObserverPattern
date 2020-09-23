@@ -18,7 +18,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
         Notifier notifier = new Notifier();
         Moderator moderator = new Moderator();
         ActivityTracker actTracker = new ActivityTracker();
@@ -31,11 +31,10 @@ public class Main {
        
         Scanner in = new Scanner(System.in);
         
-        
         int choice;
         
         do {
-            System.out.println("enter your choice:\n1- create post\n2-exis");
+            System.out.println("enter your choice:\n1- create post\n2-exit");
             choice = in.nextInt();
             switch(choice) {
             case 1 :
@@ -47,7 +46,8 @@ public class Main {
                 System.out.println("Enter user body");
                 body = in.nextLine();
                 now = LocalDateTime.now();
-                notifier.createPost(username, title, body, now);
+                BlogPost post = new BlogPost(username, title, body, now);
+                notifier.notifyObservers(post);
                 
                 break;
             case 2:

@@ -5,32 +5,15 @@
  */
 package observerpattern;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-
 /**
  *
  * @author ahmad
  */
 public class ActivityTracker implements IBlogObserver {
-    private String userName;
-    private String title;
-    private String body;
-    private LocalDateTime  date;
-    
 
     @Override
-    public void update(String userName, String title, String body, LocalDateTime date) {
-        this.userName = userName;
-        this.title = title;
-        this.body = body;
-        this.date = date;
-        savePost();
-    }
-    
-    private void savePost() {
-        System.out.println("post saved successfully!");    
+    public void update(BlogPost post) {
+        System.out.println("New post created: from activity tracker");
     }
 
-    
 }

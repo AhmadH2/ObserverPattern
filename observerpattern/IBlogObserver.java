@@ -5,13 +5,10 @@
  */
 package observerpattern;
 
-import java.time.LocalDateTime;
-
 /**
  *
  * @author ahmad
  */
 public interface IBlogObserver {
-     public void update(String userName, String title, String body, LocalDateTime date);
-
+     public void update(BlogPost post);
 }

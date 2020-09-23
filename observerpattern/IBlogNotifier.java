@@ -12,5 +12,5 @@ package observerpattern;
 public interface IBlogNotifier {
     public void registerObserver(IBlogObserver o);
     public void unRegisterObserver(IBlogObserver o);
-    public void notifyObservers();
+    public void notifyObservers(BlogPost post);
 }

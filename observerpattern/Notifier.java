@@ -5,20 +5,14 @@
  */
 package observerpattern;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
  * @author ahmad
  */
 public class Notifier implements IBlogNotifier {
-    private String userName;
-    private String title;
-    private String body;
-    private LocalDateTime  date;
-    
+
     private ArrayList<IBlogObserver> observers;
     
     public Notifier() {
@@ -39,18 +33,10 @@ public class Notifier implements IBlogNotifier {
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyObservers(BlogPost post) {
         for (IBlogObserver o : observers){
-            o.update(userName, title, body, date);
+            o.update(post);
         }
-    }
-    
-    public void createPost(String userName, String title, String body, LocalDateTime date) {
-        this.userName = userName;
-        this.title = title;
-        this.body = body;
-        this.date = date;
-        notifyObservers();
     }
     
 }
